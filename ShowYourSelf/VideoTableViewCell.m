@@ -49,6 +49,13 @@
         _thumbilImageView.contentMode = UIViewContentModeScaleAspectFit;
         [_thumbilImageView addGestureRecognizer:tap];
         [self.contentView addSubview:_thumbilImageView];
+        
+        _playView = [[VideoPlayView alloc] initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH - 20, kSCREEN_WIDTH/kSCREEN_HEIGHT * (kSCREEN_WIDTH-20)) andUrl:nil fromNet:NO];
+        _playView.userInteractionEnabled = YES;
+        [_thumbilImageView addSubview:_playView];
+        _progressView = [SDLoopProgressView progressView];
+        _progressView.frame = CGRectMake((_thumbilImageView.width-60)/2.0, (_thumbilImageView.height-60)/2.0, 60, 60);
+        [_thumbilImageView addSubview:_progressView];
     }
     return self;
 }
@@ -63,17 +70,14 @@
     [_thumbilImageView sd_setImageWithURL:[NSURL URLWithString:IMAGE_URL_STR(model.thumbilUrl)] placeholderImage:SET_IMAGE(@"icon", PNG)];
     //_playView.url = model.videoUrl;
     
-   
+    
     
 }
 
 - (void)tap {
-    _progressView = [SDLoopProgressView progressView];
-    _progressView.frame = CGRectMake((_thumbilImageView.width-60)/2.0, (_thumbilImageView.height-60)/2.0, 60, 60);
-    [_thumbilImageView addSubview:_progressView];
-    __weak typeof(self) weakSelf = self;
+    
     [BmobProFile downloadFileWithFilename:_model.videoUrl block:^(BOOL isSuccessful, NSError *error, NSString *filepath) {
-        [weakSelf createPlayView:filepath];
+        [_playView setUrl:filepath];
          [_playView.player play];
     } progress:^(CGFloat progress) {
             _progressView.progress = progress;
@@ -83,10 +87,7 @@
 
 - (VideoPlayView *)createPlayView:(NSString *)filePath {
     if (!_playView) {
-        _playView = [[VideoPlayView alloc] initWithFrame:CGRectMake(0, 0, kSCREEN_WIDTH - 20, kSCREEN_WIDTH/kSCREEN_HEIGHT * (kSCREEN_WIDTH-20)) andUrl:filePath fromNet:NO];
-        NSLog(@"%@",filePath);
-        _playView.userInteractionEnabled = YES;
-        [_thumbilImageView addSubview:_playView];
+       
        
     }
     return _playView;

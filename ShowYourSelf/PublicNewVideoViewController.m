@@ -179,13 +179,9 @@
 }
 
 - (void)createVideoPlayerViewWithUrl:(NSString *)url fromNet:(BOOL)flag {
-    _playView = [[VideoPlayView alloc] initWithFrame:CGRectMake(10, _textView.bottom + 10, kSCREEN_WIDTH - 20, kSCREEN_WIDTH/kSCREEN_HEIGHT * (kSCREEN_WIDTH-20)) andUrl:url fromNet:NO];
-    
+    _playView = [[VideoPlayView alloc] initWithFrame:CGRectMake(10, _textView.bottom + 10, kSCREEN_WIDTH - 20, kSCREEN_WIDTH/kSCREEN_HEIGHT * (kSCREEN_WIDTH-20)) andUrl:nil fromNet:NO];
+    _playView.url = url;
     [self.view addSubview:_playView];
-    
-    
-    
-    
     [_playView.player play];
 }
 

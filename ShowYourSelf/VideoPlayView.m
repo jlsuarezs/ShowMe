@@ -28,14 +28,7 @@
         _url = url;
         _flag = flag;
         //
-        self.backgroundColor = BLACKCOLOR;
-        AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-        playerLayer.frame = CGRectMake(0, 0, self.width, self.height);
         
-    
-        [self.layer addSublayer:playerLayer];
-        
-        [self addNotification];
     }
     
     return self;
@@ -53,6 +46,14 @@
 
 - (void)setUrl:(NSString *)url {
     _url = url;
+    self.backgroundColor = BLACKCOLOR;
+    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+    playerLayer.frame = CGRectMake(0, 0, self.width, self.height);
+    
+    
+    [self.layer addSublayer:playerLayer];
+    
+    [self addNotification];
 }
 
 - (AVPlayerItem *)getPlayItem {
