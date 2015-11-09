@@ -56,6 +56,7 @@
         _progressView = [SDLoopProgressView progressView];
         _progressView.frame = CGRectMake((_thumbilImageView.width-60)/2.0, (_thumbilImageView.height-60)/2.0, 60, 60);
         [_thumbilImageView addSubview:_progressView];
+        _progressView.hidden = YES;
     }
     return self;
 }
@@ -75,7 +76,8 @@
 }
 
 - (void)tap {
-    
+    _playView.hidden = NO;
+    _progressView.hidden = NO;
     [BmobProFile downloadFileWithFilename:_model.videoUrl block:^(BOOL isSuccessful, NSError *error, NSString *filepath) {
         [_playView setUrl:filepath];
          [_playView.player play];

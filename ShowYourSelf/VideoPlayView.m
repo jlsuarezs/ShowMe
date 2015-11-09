@@ -77,6 +77,7 @@
     NSLog(@"视频播放完成.");
     CMTime defaultTime = _item.duration;
     defaultTime.value = 0;
+    self.hidden = YES;
     [self.player seekToTime:defaultTime];
 }
 
