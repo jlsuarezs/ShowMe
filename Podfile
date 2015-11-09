@@ -1,0 +1,6 @@
+platform:ios, '7.0'
+pod 'BmobSDK', '~> 1.6.5'
+pod 'BUKImagePickerController', '~> 0.1.9'
+pod 'SDWebImage', '~> 3.7.3'
+pod 'XHImageViewer', '~> 0.1.2'
+pod 'MJRefresh', '~> 3.0.1'

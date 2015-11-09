@@ -1,0 +1,29 @@
+PODS:
+  - BmobSDK (1.6.5)
+  - BUKImagePickerController (0.1.9):
+    - FastttCamera (~> 0.3)
+  - FastttCamera (0.3.4):
+    - FastttCamera/Default (= 0.3.4)
+  - FastttCamera/Default (0.3.4)
+  - MJRefresh (3.0.1)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+  - XHImageViewer (0.1.2)
+
+DEPENDENCIES:
+  - BmobSDK (~> 1.6.5)
+  - BUKImagePickerController (~> 0.1.9)
+  - MJRefresh (~> 3.0.1)
+  - SDWebImage (~> 3.7.3)
+  - XHImageViewer (~> 0.1.2)
+
+SPEC CHECKSUMS:
+  BmobSDK: 9928a9135a3a7823c6d8bd2bcd9baffeb8e6289a
+  BUKImagePickerController: a5ebf141f4f7cd792762717c2b6e72c8cf9998aa
+  FastttCamera: 51f16712cbd5bdb08bc6231b957325c6be5e478d
+  MJRefresh: ca22bb7197c4a17a0491763773cd5cb106b2a810
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  XHImageViewer: 7b275d2aa829e56761c30303b9d51cae086a90b9
+
+COCOAPODS: 0.39.0
