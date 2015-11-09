@@ -50,6 +50,7 @@
 }
 
 - (void)setModel:(DynamicModel *)model {
+    [imageViews removeAllObjects];
     _contetLabel.text = model.content;
     _contetLabel.height = [NSString getStringSizeWithString:model.content withStringFont:[UIFont systemFontOfSize:14] withStringMaxSize:CGSizeMake(_contetLabel.width, MAXFLOAT)].height;
     [_iconImageView sd_setImageWithURL:[NSURL URLWithString:IMAGE_URL_STR(model.userIcon)] placeholderImage:[UIImage imageNamed:@"icon"]];
